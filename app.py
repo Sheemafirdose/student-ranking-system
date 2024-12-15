@@ -1,7 +1,8 @@
 
 import pandas as pd
 import streamlit as st
-from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import MinMaxScaler  # Correct import
+
 
 # Load data
 def load_data(uploaded_file):
