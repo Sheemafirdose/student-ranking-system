@@ -62,9 +62,10 @@ def highlight_rows(row):
 
 # Main Streamlit app
 def main():
-    st.title("Attendance Management System")
+    
 
     uploaded_file = st.file_uploader("Upload student dataset (CSV file)", type="csv")
+    st.title("Attendance Management System")
 
     if uploaded_file is not None:
         data = load_data(uploaded_file)
