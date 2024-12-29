@@ -71,11 +71,11 @@ def main():
 
         if data is not None:
             st.write("Dataset Preview:")
-            st.write(data.head(10))
+            st.write(data.head(5))
 
             data_preprocessed = preprocess_data(data)
 
-            filter_option = st.selectbox("Select filter for attendance:", ["All Students' Attendance", "Detained Students", "Condonation Students"])
+            filter_option = st.selectbox("Select filter for attendance:", ["All Students", "Detained Students", "Condonation Students"])
 
             filtered_data = filter_students(data_preprocessed, filter_option)
 
