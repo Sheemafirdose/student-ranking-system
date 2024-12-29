@@ -60,30 +60,20 @@ def rank_students(data):
 
 # Main Streamlit app
 def main():
-    st.title("Best-Performing Student Recognition System")
-
+    
     uploaded_file = st.file_uploader("Upload student dataset (CSV file)", type="csv")
+    st.title("Best-Performing Student Recognition System")
 
     if uploaded_file is not None:
         data = load_data(uploaded_file)
 
         if data is not None:
-            st.write("Dataset Preview:")
-            st.write(data.head(10))
+            
 
             data_preprocessed = preprocess_data(data)
             data_ranked = rank_students(data_preprocessed)
-
-            st.subheader("Top Performing Students:")
-
-            # Dropdown menu to select the number of students to display
-            num_students = st.selectbox("Select the number of top students to display:", [3, 10, 30, 50])
-
-            # Display the top N students including the Attendance column only if available
-            if 'Attendance' in data_ranked.columns:
-                st.table(data_ranked[['Rank', 'StudentID', 'Name', 'FormattedScore', 'Attendance']].head(num_students))
-            else:
-                st.table(data_ranked[['Rank', 'StudentID', 'Name', 'FormattedScore']].head(num_students))
+            st.write("Dataset Preview:")
+            st.write(data.head(5))
 
             st.subheader("Query a Student's Details:")
             query_id = st.text_input("Enter Student ID:")
@@ -120,6 +110,17 @@ def main():
                             ], columns=['Attribute', 'Value']))
                     else:
                         st.error("Student not found. Please check the Student ID.")
+            st.subheader("Top Performing Students:")
+
+            # Dropdown menu to select the number of students to display
+            num_students = st.selectbox("Select the number of top students to display:", [3, 10, 30, 50])
+
+            # Display the top N students including the Attendance column only if available
+            if 'Attendance' in data_ranked.columns:
+                st.table(data_ranked[['Rank', 'StudentID', 'Name', 'FormattedScore', 'Attendance']].head(num_students))
+            else:
+                st.table(data_ranked[['Rank', 'StudentID', 'Name', 'FormattedScore']].head(num_students))
+            
 
 if __name__ == "__main__":
     main()
