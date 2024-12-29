@@ -1,0 +1,41 @@
+body {
+    font-family: "Arial", sans-serif;
+    background-color: #f7f7f7;
+}
+
+h1, h2 {
+    color: #333333;
+    text-align: center;
+    margin-top: 20px;
+}
+
+p {
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+div.stButton > button {
+    background-color: #437ec1;
+    color: rgb(252, 250, 250);
+
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    
+}
+
+div.stButton > button:hover {
+    background-color: hsl(347, 96%, 78%);
+    color: rgb(252, 250, 250);
+   
+}
+/* assets/styles.css */
+.stTable {
+    height: 500px;  /* Adjust this value */
+    overflow: auto;
+}
