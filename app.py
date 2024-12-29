@@ -36,7 +36,7 @@ selected = option_menu(
 
 if selected == "Results":
     # Execute Best_Student_Recognition.py
-    exec(open("pages/best_Student.py").read())
+    exec(open("pages/best_student.py").read())
 elif selected == "Attendance":
     # Execute Attendance.py
     exec(open("pages/attendance.py").read())
